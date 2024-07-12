@@ -1446,6 +1446,11 @@
   resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.2.4.tgz#1d459cee5031893a08a0e064c406ad2130cced7c"
   integrity sha512-dWO2pw8hhi+WrXq1YJy2yCuWoL20PddgGaqTgVe4cOS9Q6qklXCiA1tJEqX6BEwRNSCP84/afac9hd4MS+zEUA==
 
+"@fontsource/nunito@^5.0.18":
+  version "5.0.18"
+  resolved "https://registry.yarnpkg.com/@fontsource/nunito/-/nunito-5.0.18.tgz#a5b2e306d4ac33e3b61c125a15554a282c430ee5"
+  integrity sha512-B7BS7ab43z5x9X6shdvwtHiYI73Y6kJvnHBJhoIdbqYbVGRf6kGMRfipH9dbmLsjL6elfxoAB3q75V23/qqE/g==
+
 "@humanwhocodes/config-array@^0.11.14":
   version "0.11.14"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.14.tgz#d78e481a039f7566ecc9660b4ea7fe6b1fec442b"
@@ -1791,6 +1796,13 @@
   version "5.16.1"
   resolved "https://registry.yarnpkg.com/@mui/core-downloads-tracker/-/core-downloads-tracker-5.16.1.tgz#36fabd4f789f87300accf6fedd4a57c88f01d3c8"
   integrity sha512-62Jq7ACYi/55Kjkh/nVfEL3F3ytTYTsdB8MGJ9iI+eRQv+Aoem5CPUAzQihUo25qqh1VkVu9/jQn3dFbyrXHgw==
+
+"@mui/icons-material@^5.16.1":
+  version "5.16.1"
+  resolved "https://registry.yarnpkg.com/@mui/icons-material/-/icons-material-5.16.1.tgz#abb72fa73d508a50a1b2e0b15cb5e4f89ef31ff9"
+  integrity sha512-ogQPweYba4+5XZykilwxn2/oS78uwoQ0BVBpOhhCJo0ooZsqTTsalhzP2qD/RdGqMQ8xyXPz1sYM2djTruVVVA==
+  dependencies:
+    "@babel/runtime" "^7.23.9"
 
 "@mui/material@^5.16.1":
   version "5.16.1"
