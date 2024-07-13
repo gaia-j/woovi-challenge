@@ -3,6 +3,10 @@ import './App.css';
 import InstalmentBox from "./components/installmentBox/installmentBox";
 import BadgeTitle from "./components/badgeTitle/badgeTitle";
 import InstalmentBoxes from "./components/installmentBoxes/installmentBoxes";
+import formatToBRL from "./utils/formatToBrl";
+import { ReactComponent as Logo} from "./assets/logo.svg";
+import {Typography} from "@mui/material";
+import GppGoodOutlinedIcon from '@mui/icons-material/GppGoodOutlined';
 
 
 function App() {
@@ -10,36 +14,47 @@ function App() {
   const instalments = [
     {
       "instalment": 1,
-      "value": 3451294
+      "value": 3451294,
+      "highlightText": "de volta no seu Pix na hora"
     },
     {
       "instalment": 2,
-      "value": 3451294
+      "value": 3451294,
+      "highlightText": ""
     },
     {
       "instalment": 3,
-      "value": 3512212
+      "value": 3512212,
+      "highlightText": ""
     },
     {
       "instalment": 4,
-      "value": 3612132
+      "value": 3612132,
+      "highlightText": "-3% de juros: Melhor opção de parcelamento"
     },
     {
       "instalment": 5,
-      "value": 3412412
+      "value": 3412412,
+      "highlightText": ""
     },
     {
       "instalment": 6,
-      "value": 3531243
+      "value": 3531243,
+      "highlightText": ""
     },
     {
       "instalment": 7,
-      "value": 3835612
+      "value": 3835612,
+      "highlightText": ""
     },
   ]
 
+  const cashbackValue: string = formatToBRL((instalments[0].value / 100) * 0.03)
+
   return (
-    <div className="App" style={{padding: '10px'}}>
+    <div className="App" style={{padding: '20px'}}>
+      <Logo/>
+      <Typography fontWeight={800} >João, como você quer pagar?</Typography>
       <div style={{position: 'relative'}}>
         <BadgeTitle>Pix</BadgeTitle>
         <InstalmentBox
@@ -51,7 +66,7 @@ function App() {
           single
         />
       </div>
-      <div style={{position: 'relative'}}>
+      <div style={{position: 'relative', marginTop: '40px'}}>
         <BadgeTitle>Pix parcelado</BadgeTitle>
         <InstalmentBoxes
           instalments={instalments}
@@ -59,7 +74,11 @@ function App() {
           onClick={setSelected}
         />
       </div>
-
+      <div style={{marginTop: '10px', color: '#AFAFAF', display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap'}}>
+        <GppGoodOutlinedIcon style={{}}/>
+        <Typography style={{fontSize: '1rem',paddingTop:'2px'}} >Pagamento 100% seguro via:</Typography>
+        <Logo style={{width: '3.5rem', marginLeft: '5px', filter: 'grayscale(100%)'}}/>
+      </div>
     </div>
   );
 }

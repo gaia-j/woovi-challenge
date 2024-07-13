@@ -11,12 +11,12 @@ export type InstalmentBoxProps =  {
   index:number,
   selected: null | number
   onClick: Dispatch<SetStateAction<null|number>>
-  instalment: {instalment: number, value: number}
+  instalment: {instalment: number, value: number, highlightText: string}
   single?: boolean
 }
 
 export type InstalmentBoxesProps = {
-  instalments: { instalment: number, value: number }[]
+  instalments: { instalment: number, value: number, highlightText: string }[]
   selected: null | number
   onClick: Dispatch<SetStateAction<null|number>>
 };
