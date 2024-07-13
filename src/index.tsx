@@ -4,7 +4,6 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Teste from "./routes/teste/teste";
 import '@fontsource/nunito/300.css';
 import '@fontsource/nunito/400.css';
 import '@fontsource/nunito/500.css';
@@ -30,7 +29,6 @@ root.render(
       <Router>
         <Routes>
           <Route path="*" element={<App />} />
-          <Route path="/teste" element={<Teste/>} />
         </Routes>
       </Router>
     </ThemeProvider>

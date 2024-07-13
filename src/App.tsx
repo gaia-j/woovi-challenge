@@ -1,19 +1,17 @@
 import React from 'react';
 import './App.css';
-import InstalmentBox from "./components/instalmentBox/instalmentBox";
-import {styled} from "@mui/material/styles";
-import {Typography} from "@mui/material";
-
-
-type InstalmentType = {
-  instalment: number
-  value: number
-}
+import InstalmentBox from "./components/installmentBox/installmentBox";
+import BadgeTitle from "./components/badgeTitle/badgeTitle";
+import InstalmentBoxes from "./components/installmentBoxes/installmentBoxes";
 
 
 function App() {
-  const [active, setActive] = React.useState<null | number>(null)
+  const [selected, setSelected] = React.useState<null | number>(null)
   const instalments = [
+    {
+      "instalment": 1,
+      "value": 3451294
+    },
     {
       "instalment": 2,
       "value": 3451294
@@ -40,37 +38,26 @@ function App() {
     },
   ]
 
-
-  const Title = styled(Typography)(({ theme }) => ({
-    position: 'absolute',
-    top: '0px',
-    left: '30px',
-    color: '#4D4D4D',
-    fontWeight: '800',
-    backgroundColor: '#E5E5E5',
-    padding: `0 1rem`,
-    fontSize: '1rem',
-    borderRadius: '100px',
-    zIndex: 10
-  }));
-
   return (
     <div className="App" style={{padding: '10px'}}>
-      <Title variant="h6">Pix parcelado</Title>
-        {instalments.map((instalment: InstalmentType ,index: number)=>{
-          let position: 'top' | 'middle' | 'bottom' = 'middle'
-          if (index === 0) {
-            position = 'top'
-          } else if (index === instalments.length - 1) {
-            position = 'bottom'
-          }
-          return (
-            <InstalmentBox
-              key={index} instPosition={position} active={index === active}
-              instalment={instalment.instalment} instalmentValue={instalment.value}
-              onClick={()=>setActive(index)}
-          />)
-        })}
+      <div style={{position: 'relative'}}>
+        <BadgeTitle>Pix</BadgeTitle>
+        <InstalmentBox
+          active={selected === 0 ? 1 : 0}
+          index={0}
+          selected={selected}
+          instalment={instalments[0]}
+          onClick={setSelected} single
+        />
+      </div>
+      <div style={{position: 'relative'}}>
+        <BadgeTitle>Pix parcelado</BadgeTitle>
+        <InstalmentBoxes
+          instalments={instalments}
+          selected={selected}
+          onClick={setSelected}
+        />
+      </div>
 
     </div>
   );

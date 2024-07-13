@@ -1,19 +1,13 @@
-import {Dispatch, SetStateAction} from "react";
 import InstalmentBox from "../installmentBox/installmentBox";
+import {InstalmentBoxesProps} from "../../types/types";
 
-type InstalmentBoxProps = {
-  instalments: { instalment: number, value: number }[]
-  selected: null | number
-  onClick: Dispatch<SetStateAction<null|number>>
-};
-
-export default function InstalmentBoxes({instalments, onClick, selected }: InstalmentBoxProps) {
+export default function InstalmentBoxes({instalments, onClick, selected }: InstalmentBoxesProps) {
   return (
     <>
       {instalments.map((_,index) => {
-        const instposition = index === 0 ? 'top' : index === instalments.length - 1 ? 'bottom' : 'middle'
+        const instposition = index === 1 ? 'top' : index === instalments.length - 1 ? 'bottom' : 'middle'
         const active = selected === index ? 1 : 0 // I know it's weird; just to solve dom issues.
-        return (
+        if (index>0) return (
           <InstalmentBox
             key={index}
             instposition={instposition}
@@ -24,6 +18,7 @@ export default function InstalmentBoxes({instalments, onClick, selected }: Insta
             onClick={onClick}
           />
         );
+        return null
       })}
     </>
   )
