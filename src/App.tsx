@@ -47,7 +47,8 @@ function App() {
           index={0}
           selected={selected}
           instalment={instalments[0]}
-          onClick={setSelected} single
+          onClick={setSelected}
+          single
         />
       </div>
       <div style={{position: 'relative'}}>
