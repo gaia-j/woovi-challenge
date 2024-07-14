@@ -10,19 +10,14 @@ import '@fontsource/nunito/500.css';
 import '@fontsource/nunito/600.css';
 import '@fontsource/nunito/700.css';
 import '@fontsource/nunito/800.css';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import Final from "./routes/final/final";
+import {theme} from "./theme";
 
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-
-const theme = createTheme({
-  typography: {
-    fontFamily: 'Nunito, Arial, sans-serif',
-  },
-});
 
 root.render(
   <React.StrictMode>
