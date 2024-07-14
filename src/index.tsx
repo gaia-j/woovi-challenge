@@ -11,6 +11,7 @@ import '@fontsource/nunito/600.css';
 import '@fontsource/nunito/700.css';
 import '@fontsource/nunito/800.css';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Final from "./routes/final/final";
 
 
 const root = ReactDOM.createRoot(
@@ -28,7 +29,8 @@ root.render(
     <ThemeProvider theme={theme}>
       <Router>
         <Routes>
-          <Route path="*" element={<App />} />
+          <Route path="/" element={<App />} />
+          <Route path="/final" element={<Final/>}/>
         </Routes>
       </Router>
     </ThemeProvider>
