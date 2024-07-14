@@ -1,6 +1,7 @@
 import {Button, FormControl, InputLabel, MenuItem, Select, TextField, Typography} from "@mui/material";
 import { ReactComponent as Logo} from "../../assets/logo.svg";
 import React from "react";
+import Input from "../../components/input/input";
 
 
 export default function Final() {
@@ -9,22 +10,12 @@ export default function Final() {
       <Logo/>
       <Typography fontWeight={800} >João, pague o restante em Xx no cartão</Typography>
       <form style={{display: 'flex', flexDirection: 'column', gap: '1.2rem'}}>
-        <FormControl>
-          <TextField label="Nome completo" variant="outlined" />
-        </FormControl>
-        <FormControl>
-          <TextField label="CPF" variant="outlined" />
-        </FormControl>
-        <FormControl>
-          <TextField label="Número do cartão" variant="outlined" />
-        </FormControl>
+        <Input label="Nome completo"/>
+        <Input label="CPF" mask="999.999.999-99" />
+        <Input label="Número do cartão" mask="9999 9999 9999 9999" />
         <div style={{display: 'flex', gap: '1.2rem'}}>
-          <FormControl style={{width: '50%'}}>
-            <TextField label="Vencimento" variant="outlined" />
-          </FormControl>
-          <FormControl style={{width: '50%'}}>
-            <TextField label="CVV" variant="outlined" />
-          </FormControl>
+          <Input label="Vencimento" mask="99/99" />
+          <Input label="CVV" mask="9999" />
         </div>
         <FormControl>
           <InputLabel id="demo-simple-select-label">Parcelas</InputLabel>
