@@ -9,7 +9,7 @@ export default function Input({ label, variant, mask }: any) {
   const handleChange = (e:any) => {
     if (!mask) return
     const input = e.target;
-    const rawValue = input.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+    const rawValue = input.value.replace(/\D/g, '');
     let maskedValue = '';
     let maskIndex = 0;
     let rawValueIndex = 0;
@@ -26,10 +26,9 @@ export default function Input({ label, variant, mask }: any) {
 
     input.value = maskedValue;
   };
-  console.log("fodase")
+
   return (
-    <FormControl>
-      {/*<TextField label="Nome completo" variant="outlined" />*/}
+    <FormControl style={{width: '100%'}}>
       <TextField
         label={label}
         variant="outlined"
