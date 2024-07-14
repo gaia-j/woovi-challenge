@@ -1,9 +1,7 @@
 import React from 'react';
-import './App.css';
 import InstalmentBox from "./components/installmentBox/installmentBox";
 import BadgeTitle from "./components/badgeTitle/badgeTitle";
 import InstalmentBoxes from "./components/installmentBoxes/installmentBoxes";
-import formatToBRL from "./utils/formatToBrl";
 import { ReactComponent as Logo} from "./assets/logo.svg";
 import {Typography} from "@mui/material";
 import GppGoodOutlinedIcon from '@mui/icons-material/GppGoodOutlined';
@@ -49,10 +47,9 @@ function App() {
     },
   ]
 
-  const cashbackValue: string = formatToBRL((instalments[0].value / 100) * 0.03)
 
   return (
-    <div className="App" style={{padding: '20px'}}>
+    <div className="App" style={{padding: '20px', textAlign: 'center'}}>
       <Logo/>
       <Typography fontWeight={800} >João, como você quer pagar?</Typography>
       <div style={{position: 'relative'}}>
