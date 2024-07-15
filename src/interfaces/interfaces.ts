@@ -1,11 +1,11 @@
 import {Dispatch, SetStateAction} from "react";
 
-export type StyledProps = {
+export interface StyledProps {
   instposition: 'top' | 'middle' | 'bottom';
   active: number,
 }
 
-export type InstalmentBoxProps =  {
+export interface InstalmentBoxProps {
   instposition?: 'top' | 'middle' | 'bottom';
   active: number,
   index:number,
@@ -15,7 +15,7 @@ export type InstalmentBoxProps =  {
   single?: boolean
 }
 
-export type InstalmentBoxesProps = {
+export interface InstalmentBoxesProps {
   instalments: { instalment: number, value: number, highlightText: string }[]
   selected: null | number
   onClick: Dispatch<SetStateAction<null|number>>

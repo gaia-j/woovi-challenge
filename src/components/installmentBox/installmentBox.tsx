@@ -1,7 +1,7 @@
 import {styled} from "@mui/material/styles";
 import {Box, Radio, Typography} from "@mui/material";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
-import {InstalmentBoxProps, StyledProps} from "../../types/types";
+import {InstalmentBoxProps, StyledProps} from "../../interfaces/interfaces";
 import formatToBRL from "../../utils/formatToBrl";
 import React from "react";
 import {styles} from "./intallmentBox.style";

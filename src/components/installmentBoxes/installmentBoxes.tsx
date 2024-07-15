@@ -1,5 +1,5 @@
 import InstalmentBox from "../installmentBox/installmentBox";
-import {InstalmentBoxesProps} from "../../types/types";
+import {InstalmentBoxesProps} from "../../interfaces/interfaces";
 
 export default function InstalmentBoxes({instalments, onClick, selected }: InstalmentBoxesProps) {
   return (
