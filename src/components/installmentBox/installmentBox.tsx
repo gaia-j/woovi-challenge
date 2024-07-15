@@ -4,6 +4,8 @@ import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import {InstalmentBoxProps, StyledProps} from "../../types/types";
 import formatToBRL from "../../utils/formatToBrl";
 import React from "react";
+import {styles} from "./intallmentBox.style";
+import {colors} from "../../theme";
 
 export default function InstalmentBox(
   {
@@ -14,102 +16,79 @@ export default function InstalmentBox(
   }: InstalmentBoxProps
 ) {
 
+  // @ts-ignore
   const Styled = styled(Box)<StyledProps>(({ theme, instposition, active }) =>{
-    let borderRadius = instposition === 'top' ? '10px 10px 0 0' : instposition === 'bottom' ? '0 0 10px 10px' : '0px';
-    if (single) borderRadius = '10px'
+    let borderRadius = instposition === 'top' ? styles.radius.top : instposition === 'bottom' ? styles.radius.bottom : styles.radius.none
+    if (single) borderRadius = styles.radius.single
     const marginTop = instposition === 'top' ? 1 : -2;
-    const borderColor = active === 1 ? '#03D69D' : '#E5E5E5';
-    const backgroundColor = active === 1 ? '#F4FBF9' : '#FFF';
+    const borderColor = active === 1 ? colors.mainGreen : colors.lightGray;
+    const backgroundColor = active === 1 ? colors.highlightGreen : colors.white;
     const zIndex = active === 1 ? 5 : 1;
+
     return {
-      cursor: 'pointer',
-      position: 'relative',
-      border: '2px solid',
-      display: 'flex',
-      justifyContent: 'space-between',
-      padding: theme.spacing(2),
-      flexDirection: 'column',
+      ...styles.installmentBox,
       marginTop,
       borderColor,
       backgroundColor,
       borderRadius,
       zIndex,
-      '&:hover': {
-        backgroundColor: '#F4FBF9',
-      },
+
     }
   });
 
   const total = formatToBRL(instalment.value / 100)
   const installmentValue = formatToBRL(instalment.value / 100 / instalment.instalment)
 
-  const subTitle = () => {
+  const SubTitle = () => {
     if (single) {
       return (
-          <Typography style={{color: "#03D69D", fontWeight: '600', fontSize: '0.9rem'}} variant="body1">
+          <Typography style={styles.cashback}>
             Ganhe <b>3%</b> de Cashback
           </Typography>
       )
     }
     return (
-      <Typography style={{color: "#AFAFAF", fontWeight: '500', fontSize: '0.9rem'}} variant="body1">
+      <Typography style={styles.totalValue}>
         Total: {total}
       </Typography>
     )
   }
 
+  const Strip = () => {
+    if (instalment.highlightText.length >0) {
+      return (
+        <div style={styles.strip}>
+          <Typography style={styles.font700}>{instalment.highlightText}</Typography>
+          <div style={styles.stripCut}/>
+        </div>
+      )
+    }
+    return null
+  }
+
   return (
     <Styled
+      // @ts-ignore
       instposition={instposition as StyledProps['instposition']}
       active={active}
       onClick={() => onClick(index)}
     >
-      <div style={{
-        display: "flex",
-        width: "100%",
-        justifyContent: "space-between",
-      }}>
-        <div style={{textAlign: 'left'}}>
-          <Typography style={{color: "#4D4D4D", fontWeight: '700'}} variant="body1">
-            <span style={{fontWeight: '800', fontSize: '1.1rem'}}>{instalment.instalment}x </span>
+      <div style={styles.content}>
+        <div style={styles.textLeft}>
+          <Typography style={styles.installmentText}>
+            <span style={styles.installmentNumber}>{instalment.instalment}x </span>
             {installmentValue}
           </Typography>
-          {subTitle()}
+          <SubTitle/>
         </div>
         <Radio
-          checked={selected === index} sx={{color: '#E5E5E5'}}
+          checked={selected === index} sx={{color: colors.lightGray}}
           checkedIcon={
-            <CheckCircleRoundedIcon sx={{color: '#03D69D'}}/>
+            <CheckCircleRoundedIcon sx={{color: colors.mainGreen}}/>
           }
         />
       </div>
-
-      {
-        instalment.highlightText.length > 0 && (
-          <div style={{
-            width: "100%",
-            backgroundColor: "#133A6F",
-            color: "white",
-            position: 'relative',
-            textAlign: 'left',
-            alignContent: 'center',
-            paddingLeft: '10px',
-            borderRadius: '5px',
-            height: '32px',
-          }}>
-            <Typography style={{fontWeight: '700'}}>{instalment.highlightText}</Typography>
-            <div style={{
-              position: 'absolute',
-              right: 0,
-              top: 0,
-              width: 0,
-              borderBottom: '16px solid transparent',
-              borderTop: '16px solid transparent',
-              borderRight: '16px solid white'
-            }}/>
-          </div>
-        )
-      }
+      <Strip/>
     </Styled>
   )
 }
