@@ -21,7 +21,7 @@ function App() {
   }
 
   return (
-    <div className="App" style={{padding: '20px 20px 0 20px', textAlign: 'center'}}>
+    <div className="App" style={{padding: '30px 20px', textAlign: 'center'}}>
       <Typography fontWeight={800} >João, como você quer pagar?</Typography>
       <div style={{position: 'relative'}}>
         <BadgeTitle>Pix</BadgeTitle>

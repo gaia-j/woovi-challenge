@@ -4,7 +4,8 @@ import {CSSProperties} from "@mui/material/styles/createMixins";
 
 export const styles: {[key: string]: CSSProperties} = {
   container: {
-    marginTop: '10px',
+    marginTop: '0px',
+    marginBottom: '30px',
     color: colors.midGray,
     display: 'flex',
     alignItems: 'center',
