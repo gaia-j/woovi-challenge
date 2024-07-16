@@ -11,7 +11,7 @@ import '@fontsource/nunito/600.css';
 import '@fontsource/nunito/700.css';
 import '@fontsource/nunito/800.css';
 import { ThemeProvider } from '@mui/material/styles';
-import Final from "./routes/final/final";
+import PaymentCard from "./routes/paymentCard/paymentCard";
 import {theme} from "./theme";
 import {AppProvider} from "./contexts/AppContext";
 import Footer from "./components/footer/footer";
@@ -30,7 +30,7 @@ root.render(
         <Router>
           <Routes>
             <Route path="/" element={<App />} />
-            <Route path="/final" element={<Final/>}/>
+            <Route path="/payment-card" element={<PaymentCard/>}/>
           </Routes>
         </Router>
         <Footer/>

@@ -4,10 +4,10 @@ import Input from "../../components/input/input";
 import PaymentDetails from "../../components/paymentDetails/paymentDetails";
 import {useAppContext} from "../../contexts/AppContext";
 import {AppContextType} from "../../interfaces/interfaces";
-import {styles} from "./final.style";
+import {styles} from "./paymentCard.style";
 
 
-export default function Final() {
+export default function PaymentCard() {
   const {name,selectedOption} = useAppContext() as AppContextType
   const terms = selectedOption?.instalment as number
   return (
