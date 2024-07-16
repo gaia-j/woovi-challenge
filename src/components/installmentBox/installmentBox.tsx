@@ -9,21 +9,21 @@ import {colors} from "../../theme";
 
 export default function InstalmentBox(
   {
-    instposition, active,
+    instposition,single,
     selected, onClick,
-    index, instalment,
-    single,
+    instalment,
   }: InstalmentBoxProps
 ) {
 
   // @ts-ignore
-  const Styled = styled(Box)<StyledProps>(({ theme, instposition, active }) =>{
+  const Styled = styled(Box)<StyledProps>(({ theme, instposition }) =>{
+    const active = selected?.instalment === instalment.instalment
     let borderRadius = instposition === 'top' ? styles.radius.top : instposition === 'bottom' ? styles.radius.bottom : styles.radius.none
     if (single) borderRadius = styles.radius.single
     const marginTop = instposition === 'top' ? 1 : -2;
-    const borderColor = active === 1 ? colors.mainGreen : colors.lightGray;
-    const backgroundColor = active === 1 ? colors.highlightGreen : colors.white;
-    const zIndex = active === 1 ? 5 : 1;
+    const borderColor = active ? colors.mainGreen : colors.lightGray;
+    const backgroundColor = active ? colors.highlightGreen : colors.white;
+    const zIndex = active ? 5 : 1;
 
     return {
       ...styles.installmentBox,
@@ -55,14 +55,14 @@ export default function InstalmentBox(
   }
 
   const Strip = () => {
-    if (instalment.highlightText.length >0) {
-      return (
-        <div style={styles.strip}>
-          <Typography style={styles.font700}>{instalment.highlightText}</Typography>
-          <div style={styles.stripCut}/>
-        </div>
-      )
-    }
+    // if (instalment.highlightText.length >0) {
+    //   return (
+    //     <div style={styles.strip}>
+    //       <Typography style={styles.font700}>{instalment.highlightText}</Typography>
+    //       <div style={styles.stripCut}/>
+    //     </div>
+    //   )
+    // }
     return null
   }
 
@@ -70,8 +70,7 @@ export default function InstalmentBox(
     <Styled
       // @ts-ignore
       instposition={instposition as StyledProps['instposition']}
-      active={active}
-      onClick={() => onClick(index)}
+      onClick={() => onClick(instalment)}
     >
       <div style={styles.content}>
         <div style={styles.textLeft}>
@@ -82,7 +81,7 @@ export default function InstalmentBox(
           <SubTitle/>
         </div>
         <Radio
-          checked={selected === index} sx={{color: colors.lightGray}}
+          checked={selected?.instalment === instalment.instalment} sx={{color: colors.lightGray}}
           checkedIcon={
             <CheckCircleRoundedIcon sx={{color: colors.mainGreen}}/>
           }

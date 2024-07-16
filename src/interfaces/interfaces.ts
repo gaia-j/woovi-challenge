@@ -1,22 +1,35 @@
 import {Dispatch, SetStateAction} from "react";
 
+export interface InstallmentInterface {
+  instalment: number,
+  value: number
+}
+
 export interface StyledProps {
   instposition: 'top' | 'middle' | 'bottom';
-  active: number,
 }
 
 export interface InstalmentBoxProps {
   instposition?: 'top' | 'middle' | 'bottom';
-  active: number,
-  index:number,
-  selected: null | number
-  onClick: Dispatch<SetStateAction<null|number>>
-  instalment: {instalment: number, value: number, highlightText: string}
+  selected: InstallmentInterface | null
+  onClick:(option: InstallmentInterface | null) => void
+  instalment: InstallmentInterface
   single?: boolean
 }
 
 export interface InstalmentBoxesProps {
-  instalments: { instalment: number, value: number, highlightText: string }[]
-  selected: null | number
-  onClick: Dispatch<SetStateAction<null|number>>
-};
+  instalments: InstallmentInterface[]
+  selected: InstallmentInterface | null
+  onClick: (option: InstallmentInterface | null) => void
+}
+
+export interface AppContextType {
+  selectedOption: InstallmentInterface | null;
+  setSelectedOption: (option: InstallmentInterface | null) => void;
+  step: number;
+  setStep: (step: number) => void;
+  name: string;
+  setName: (nome: string) => void;
+  expDate: string;
+  setExpDate: (expDate: string) => void;
+}
