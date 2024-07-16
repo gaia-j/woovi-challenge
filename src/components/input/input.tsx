@@ -1,5 +1,7 @@
 import {FormControl, TextField} from "@mui/material";
-import React, {useRef, useState} from "react";
+import React, {useRef} from "react";
+import {styled} from "@mui/material/styles";
+import {styles} from "./input.style";
 
 
 export default function Input({ label, variant, mask }: any) {
@@ -27,9 +29,11 @@ export default function Input({ label, variant, mask }: any) {
     input.value = maskedValue;
   };
 
+  const StyledTextField = styled(TextField)(({ theme }) => (styles.input));
+
   return (
     <FormControl style={{width: '100%'}}>
-      <TextField
+      <StyledTextField
         label={label}
         variant="outlined"
         value={inputRef.current}
