@@ -1,5 +1,5 @@
-import {validateCpf} from "../utils/validateCpf";
-import isValidCreditCard from "../utils/validateCard";
+import {validateCpf} from "./validateCpf";
+import isValidCreditCard from "./validateCard";
 import {FieldsValidationInterface} from "../interfaces/interfaces";
 
 export const fieldsValidation = ({
