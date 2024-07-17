@@ -22,7 +22,7 @@ export default function ModalPayment({open, handleClose, pix}: {open: boolean, h
     }, 500);
   }
 
-  const label = pix ? term > 1? 'Próximo' : 'Finalizar' : 'Próximo'
+  const label = pix ? term > 1? 'Próximo' : 'Finalizar' : 'Finalizar'
 
   return (
     <Modal
