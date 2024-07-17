@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import InstalmentBox from "../../components/installmentBox/installmentBox";
 import BadgeTitle from "../../components/badgeTitle/badgeTitle";
 import InstalmentBoxes from "../../components/installmentBoxes/installmentBoxes";
@@ -15,6 +15,10 @@ import Footer from "../../components/footer/footer";
 
 export default function SelectTerms() {
   const {name,selectedOption, setSelectedOption, setExpDate }: AppContextType = useAppContext() as AppContextType
+
+  useEffect(() => {
+    document.title = "Selecionar parcelas"
+  }, [])
 
   const navigate = useNavigate();
   const handleNext = () => {

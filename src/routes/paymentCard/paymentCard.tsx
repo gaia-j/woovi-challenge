@@ -1,5 +1,5 @@
 import {Button, FormControl, InputLabel, MenuItem, Select, Typography} from "@mui/material";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Input from "../../components/input/input";
 import PaymentDetails from "../../components/paymentDetails/paymentDetails";
 import {useAppContext} from "../../contexts/AppContext";
@@ -13,6 +13,10 @@ import ModalPayment from "../../components/modals/modal";
 export default function PaymentCard() {
   const {name,selectedOption,setStep} = useAppContext() as AppContextType
   const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    document.title = "Efetuar pagamento cartão"
+  }, [])
 
   const value = selectedOption?.value as number
   const term = selectedOption?.instalment as number

@@ -1,5 +1,5 @@
 import {Button, Typography} from "@mui/material";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import PaymentDetails from "../../components/paymentDetails/paymentDetails";
 import {useAppContext} from "../../contexts/AppContext";
 import {AppContextType} from "../../interfaces/interfaces";
@@ -14,6 +14,11 @@ import Modal from "../../components/modals/modal";
 export default function PaymentPix() {
   const {name,selectedOption, setStep} = useAppContext() as AppContextType
   const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    document.title = "Efetuar pagamento pix"
+  }, [])
+
 
   const value = selectedOption?.value as number
   const term = selectedOption?.instalment as number

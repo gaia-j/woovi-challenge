@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useAppContext} from "./contexts/AppContext";
 import {AppContextType} from "./interfaces/interfaces";
 import {useNavigate} from "react-router-dom";
@@ -10,8 +10,13 @@ import {Button, TextField, Typography} from "@mui/material";
 
 
 
+
 function App() {
   const {setExpDate, setName, name,setStep}: AppContextType = useAppContext() as AppContextType
+
+  useEffect(() => {
+    document.title = "Woovi Challenge - Hugo Gaia"
+  }, [])
 
   const navigate = useNavigate();
   const handleNext = () => {
@@ -27,6 +32,7 @@ function App() {
 
   return (
     <div style={styles.container}>
+      <title>ugo</title>
       <Logo style={styles.logo}/>
       <Challenge style={styles.challenge}/>
       <div style={styles.content}>

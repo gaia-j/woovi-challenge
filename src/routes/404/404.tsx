@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {useNavigate} from "react-router-dom";
 
@@ -10,6 +10,9 @@ import {styles} from "./404.style";
 
 
 export default function NotFound() {
+  useEffect(() => {
+    document.title = "????"
+  }, [])
   return (
     <div style={styles.container}>
       <Logo style={styles.logo}/>

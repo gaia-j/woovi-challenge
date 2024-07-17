@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {useNavigate} from "react-router-dom";
 
@@ -11,6 +11,10 @@ import {styles} from "./final.style";
 
 export default function Final() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "Obrigado!!"
+  }, [])
 
   const handleNext = () => {
     navigate('/')
