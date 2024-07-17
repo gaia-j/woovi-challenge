@@ -18,6 +18,7 @@ import SelectTerms from "./routes/selectTerms/selectTerms";
 import PaymentPix from "./routes/paymentPix/paymentPix";
 import Final from "./routes/final/final";
 import NotFound from "./routes/404/404";
+import {PaymentProvider} from "./contexts/PaymentContext";
 
 
 const root = ReactDOM.createRoot(
@@ -27,18 +28,20 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <AppProvider>
-      <ThemeProvider theme={theme}>
-        <Router>
-          <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="/select-terms" element={<SelectTerms/>}/>
-            <Route path="/payment-pix" element={<PaymentPix />} />
-            <Route path="/payment-card" element={<PaymentCard/>}/>
-            <Route path="/final" element={<Final />} />
-            <Route path="*" element={<NotFound/>} />
-          </Routes>
-        </Router>
-      </ThemeProvider>
+      <PaymentProvider>
+        <ThemeProvider theme={theme}>
+          <Router>
+            <Routes>
+              <Route path="/" element={<App />} />
+              <Route path="/select-terms" element={<SelectTerms/>}/>
+              <Route path="/payment-pix" element={<PaymentPix />} />
+              <Route path="/payment-card" element={<PaymentCard/>}/>
+              <Route path="/final" element={<Final />} />
+              <Route path="*" element={<NotFound/>} />
+            </Routes>
+          </Router>
+        </ThemeProvider>
+      </PaymentProvider>
     </AppProvider>
 
   </React.StrictMode>

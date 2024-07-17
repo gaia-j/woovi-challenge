@@ -33,3 +33,36 @@ export interface AppContextType {
   expDate: string;
   setExpDate: (expDate: string) => void;
 }
+
+export interface ModalProps {
+  open: boolean,
+  handleClose: () => void,
+  pix?: boolean,
+  errors?: PaymentData
+}
+
+
+export interface PaymentData {
+  [key: string]: string;
+  name: string;
+  cpf: string;
+  cardNumber: string;
+  cardExpDate: string;
+  cardCvv: string;
+}
+
+export interface PaymentContextInterface {
+  errors: PaymentData;
+  setErrors: Dispatch<SetStateAction<PaymentData>>;
+  data: PaymentData;
+  setData: Dispatch<SetStateAction<PaymentData>>;
+}
+
+export interface FieldsValidationInterface{
+  value: string,
+  mask?: string,
+  setData: Dispatch<SetStateAction<PaymentData>>,
+  field: string,
+  errors: PaymentData,
+  setErrors: Dispatch<SetStateAction<PaymentData>>
+}

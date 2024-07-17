@@ -7,11 +7,11 @@ import {styles} from "./modal.style";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import {useNavigate} from "react-router-dom";
 import {useAppContext} from "../../contexts/AppContext";
-import {AppContextType} from "../../interfaces/interfaces";
+import {AppContextType, ModalProps, PaymentData} from "../../interfaces/interfaces";
 
 
 
-export default function ModalPayment({open, handleClose, pix}: {open: boolean, handleClose: () => void, pix?: boolean}) {
+export default function ModalPayment({open, handleClose, pix, errors}: ModalProps) {
   const {selectedOption} = useAppContext() as AppContextType
   const term = selectedOption?.instalment as number
   const navigate = useNavigate();
