@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 
-import {useNavigate} from "react-router-dom";
 
 import { ReactComponent as Logo} from "../../assets/logo.svg";
 import { ReactComponent as Challenge} from "../../assets/challenge.svg";
