@@ -23,10 +23,10 @@ export const styles:{[key: string]: CSSProperties} = {
     padding: '0.8rem 0',
   },
   labelStep:{
-    width: '70%',
+    width: '60%',
   },
   valueStep:{
-    width: '30%',
+    width: '40%',
     textAlign: 'right',
   },
   divider:{
@@ -50,4 +50,13 @@ export const styles:{[key: string]: CSSProperties} = {
     color: colors.darkGray,
     fontWeight: 500
   },
+  identifier:{
+    marginTop: '20px',
+    color: colors.midGray,
+    fontWeight: 500
+  },
+  identifierCode:{
+    color: colors.darkGray,
+    fontWeight: 800
+  }
 }

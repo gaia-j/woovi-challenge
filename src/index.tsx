@@ -14,8 +14,10 @@ import { ThemeProvider } from '@mui/material/styles';
 import PaymentCard from "./routes/paymentCard/paymentCard";
 import {theme} from "./theme";
 import {AppProvider} from "./contexts/AppContext";
-import Footer from "./components/footer/footer";
-import Header from "./components/header/header";
+import SelectTerms from "./routes/selectTerms/selectTerms";
+import PaymentPix from "./routes/paymentPix/paymentPix";
+import Final from "./routes/final/final";
+import NotFound from "./routes/404/404";
 
 
 const root = ReactDOM.createRoot(
@@ -26,14 +28,16 @@ root.render(
   <React.StrictMode>
     <AppProvider>
       <ThemeProvider theme={theme}>
-        <Header/>
         <Router>
           <Routes>
             <Route path="/" element={<App />} />
+            <Route path="/select-terms" element={<SelectTerms/>}/>
+            <Route path="/payment-pix" element={<PaymentPix />} />
             <Route path="/payment-card" element={<PaymentCard/>}/>
+            <Route path="/final" element={<Final />} />
+            <Route path="*" element={<NotFound/>} />
           </Routes>
         </Router>
-        <Footer/>
       </ThemeProvider>
     </AppProvider>
 

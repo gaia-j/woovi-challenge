@@ -1,46 +1,39 @@
 import React from 'react';
-import InstalmentBox from "./components/installmentBox/installmentBox";
-import BadgeTitle from "./components/badgeTitle/badgeTitle";
-import InstalmentBoxes from "./components/installmentBoxes/installmentBoxes";
-import {Button, Typography} from "@mui/material";
-import {installments} from "./utils/installments";
 import {useAppContext} from "./contexts/AppContext";
 import {AppContextType} from "./interfaces/interfaces";
 import {useNavigate} from "react-router-dom";
 import {getExpTime} from "./utils/getExpTime";
+import {styles} from "./App.style";
+import { ReactComponent as Logo} from "./assets/logo.svg";
+import { ReactComponent as Challenge} from "./assets/challenge.svg";
+import {Button, TextField, Typography} from "@mui/material";
+
 
 
 function App() {
-  const {selectedOption, setSelectedOption, setExpDate }: AppContextType = useAppContext() as AppContextType
+  const {setExpDate, setName, name,setStep}: AppContextType = useAppContext() as AppContextType
 
   const navigate = useNavigate();
   const handleNext = () => {
     const expTime = getExpTime()
     setExpDate(expTime)
-    navigate('/final')
+    setStep(0)
+    navigate('/select-terms')
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value)
   }
 
   return (
-    <div className="App" style={{padding: '30px 20px', textAlign: 'center'}}>
-      <Typography fontWeight={800} >João, como você quer pagar?</Typography>
-      <div style={{position: 'relative'}}>
-        <BadgeTitle>Pix</BadgeTitle>
-        <InstalmentBox
-          selected={selectedOption}
-          instalment={installments[0]}
-          onClick={setSelectedOption}
-          single
-        />
+    <div style={styles.container}>
+      <Logo style={styles.logo}/>
+      <Challenge style={styles.challenge}/>
+      <div style={styles.content}>
+        <Typography style={styles.title} >Olá! Para começar digite seu nome</Typography>
+        <TextField sx={styles.input} value={name} label="Nome" variant="outlined" onChange={handleChange} />
+        <Button style={styles.button} variant="outlined" onClick={handleNext}>Começar</Button>
       </div>
-      <div style={{position: 'relative', marginTop: '40px'}}>
-        <BadgeTitle>Pix parcelado</BadgeTitle>
-        <InstalmentBoxes
-          instalments={installments}
-          selected={selectedOption}
-          onClick={setSelectedOption}
-        />
-      </div>
-      <Button variant="contained" onClick={handleNext}>Próximo</Button>
     </div>
   );
 }

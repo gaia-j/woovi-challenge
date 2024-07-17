@@ -19,18 +19,19 @@ export const styles : {[key: string]: CSSProperties} = {
     fontSize: "1.2rem",
     marginBottom: "20px"
   },
-  form:{
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '1.2rem',
-    width: '100%'
-  },
-  twoInput:{
-    display: 'flex',
-    gap: '1.2rem'
-  },
   button:{
     width: '100%',
+    maxWidth: '300px',
     borderRadius: '8px',
+    marginTop: '30px',
+  },
+  pixHolder:{
+    border: 'solid',
+    padding: '10px',
+    maxWidth: '300px',
+    width: '80%',
+    borderColor: colors.mainGreen,
+    borderWidth: '2px',
+    borderRadius: '10px',
   }
 }

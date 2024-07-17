@@ -6,11 +6,6 @@ import {styles} from "./footer.style";
 
 
 export default function Footer(){
-  const paymentRoutes = ['/select-terms', '/payment-card', 'payment-pix']
-  const pathname = window.location.pathname
-  if (!paymentRoutes.includes(pathname)) {
-    return null
-  }
   return (
     <div style={styles.container}>
       <GppGoodOutlinedIcon style={{}}/>

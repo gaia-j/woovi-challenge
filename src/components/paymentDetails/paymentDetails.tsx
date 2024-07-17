@@ -10,11 +10,14 @@ import CustomAccordion from "../accordion/accordion";
 export default function PaymentDetails() {
   const {step, expDate, selectedOption} = useAppContext() as AppContextType
 
-  const first = selectedOption?.value as number
+  const value = selectedOption?.value as number
   const term = selectedOption?.instalment as number
-  const totalInstallment = first / term / 100
-  const formatedInstallment = formatToBRL(totalInstallment || 0);
-  const total = formatToBRL(totalInstallment * term)
+  const firstInstallment = value / term / 100
+  const otherInstallments= (value / 100) - firstInstallment
+  const formatedFirst = formatToBRL(firstInstallment);
+  const formatedOther = formatToBRL(otherInstallments);
+
+  const total = formatToBRL(otherInstallments + (otherInstallments*0.005) + firstInstallment)
 
   return (
     <div style={styles.container}>
@@ -30,17 +33,17 @@ export default function PaymentDetails() {
                 <Typography style={styles.term}>Entrada no pix</Typography>
               </span>
               <span style={styles.valueStep}>
-                <Typography style={styles.expTime}>{formatedInstallment}</Typography>
+                <Typography style={styles.expTime}>{formatedFirst}</Typography>
               </span>
             </StepLabel>
           </Step>
           <Step>
             <StepLabel>
               <span style={styles.labelStep}>
-                <Typography style={styles.term}>Restante em {term-1}x de:</Typography>
+                <Typography style={styles.term}>Restante em {term-1}x</Typography>
               </span>
               <span style={styles.valueStep}>
-                <Typography style={styles.expTime}>{formatedInstallment}</Typography>
+                <Typography style={styles.expTime}>{formatedOther}</Typography>
               </span>
             </StepLabel>
           </Step>
@@ -59,6 +62,10 @@ export default function PaymentDetails() {
       <Divider variant="middle" style={styles.divider}/>
       <CustomAccordion label="Como funciona?" description="Também não sei 😜" />
       <Divider variant="middle" style={styles.divider}/>
+      <div>
+        <Typography style={styles.identifier}>Identificador:</Typography>
+        <Typography style={styles.identifierCode}>2c1b951f356c4680b13ba1c9fc889c47</Typography>
+      </div>
 
     </div>
   )
