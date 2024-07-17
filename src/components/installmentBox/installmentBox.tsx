@@ -55,14 +55,28 @@ export default function InstalmentBox(
   }
 
   const Strip = () => {
-    // if (instalment.highlightText.length >0) {
-    //   return (
-    //     <div style={styles.strip}>
-    //       <Typography style={styles.font700}>{instalment.highlightText}</Typography>
-    //       <div style={styles.stripCut}/>
-    //     </div>
-    //   )
-    // }
+    if (instalment.instalment === 4) {
+      return (
+        <div style={styles.strip}>
+          <Typography style={styles.stripText}>
+            <span style={styles.highlight}>-3% de juros: </span>
+            Melhor opção de parcelamento
+          </Typography>
+          <div style={styles.stripCut}/>
+        </div>
+      )
+    }
+    if(instalment.instalment === 1) {
+      return (
+        <div style={styles.strip}>
+          <Typography style={styles.stripText}>
+            <span style={styles.highlight}>🤑 R$ 300,00 </span>
+            de volta no seu Pix na hora
+          </Typography>
+          <div style={styles.stripCut}/>
+        </div>
+      )
+    }
     return null
   }
 

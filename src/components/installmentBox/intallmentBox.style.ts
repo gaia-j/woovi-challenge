@@ -25,19 +25,18 @@ export const styles:{[key: string]: CSSProperties} = {
     fontSize: '1.1rem'
   },
   strip:{
-    width: "100%",
+    width: "95%",
     backgroundColor: colors.mainBlue,
     color: "white",
     position: "relative",
     textAlign: 'left',
     alignContent: 'center',
-    paddingLeft: '10px',
     borderRadius: '5px',
-    height: '32px',
+    minHeight: '32px',
   },
   stripCut:{
     position: 'absolute',
-    right: 0,
+    right: -1,
     top: 0,
     width: 0,
     borderBottom: '16px solid transparent',
@@ -68,8 +67,13 @@ export const styles:{[key: string]: CSSProperties} = {
   textLeft:{
     textAlign: 'left'
   },
-  font700:{
-    fontWeight: '700'
+  stripText:{
+    fontSize: '0.9rem',
+    fontWeight: '600',
+    marginLeft: '10px'
+  },
+  highlight:{
+    fontWeight: '800',
   }
 
 }

@@ -6,19 +6,23 @@ import Modal from '@mui/material/Modal';
 import {styles} from "./modal.style";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import {useNavigate} from "react-router-dom";
+import {useAppContext} from "../../contexts/AppContext";
+import {AppContextType} from "../../interfaces/interfaces";
 
 
 
 export default function ModalPayment({open, handleClose, pix}: {open: boolean, handleClose: () => void, pix?: boolean}) {
+  const {selectedOption} = useAppContext() as AppContextType
+  const term = selectedOption?.instalment as number
   const navigate = useNavigate();
 
   const handleNext = () => {
     setTimeout(() => {
-      pix ? navigate('/payment-card') : navigate('/final')
+      pix ? term > 1? navigate('/payment-card'): navigate('/final') : navigate('/final')
     }, 500);
   }
 
-  const label = pix ? 'Próximo' : 'Finalizar';
+  const label = pix ? term > 1? 'Próximo' : 'Finalizar' : 'Próximo'
 
   return (
     <Modal

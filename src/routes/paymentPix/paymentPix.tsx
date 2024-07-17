@@ -30,11 +30,13 @@ export default function PaymentPix() {
     setOpen(false)
   }
 
+  const text = term > 1? 'a entrada de' : 'o valor de'
+
   return (
     <>
       <Header/>
       <div style={styles.container} >
-        <Typography style={styles.title}>{name}, pague a entrada de {firstInstallment} no pix</Typography>
+        <Typography style={styles.title}>{name}, pague {text} {firstInstallment} no pix</Typography>
         <div style={styles.pixHolder}>
           <QrPix/>
         </div>

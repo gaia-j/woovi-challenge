@@ -37,22 +37,26 @@ export default function PaymentDetails() {
               </span>
             </StepLabel>
           </Step>
-          <Step>
-            <StepLabel>
-              <span style={styles.labelStep}>
-                <Typography style={styles.term}>Restante em {term-1}x</Typography>
-              </span>
-              <span style={styles.valueStep}>
-                <Typography style={styles.expTime}>{formatedOther}</Typography>
-              </span>
-            </StepLabel>
-          </Step>
+          {term !== 1 &&
+              <Step>
+                <StepLabel>
+                  <span style={styles.labelStep}>
+                    <Typography style={styles.term}>Restante em {term - 1}x</Typography>
+                  </span>
+                  <span style={styles.valueStep}>
+                    <Typography style={styles.expTime}>{formatedOther}</Typography>
+                  </span>
+                </StepLabel>
+              </Step>
+          }
         </PaymentStepper>
       </div>
       <Divider variant="middle" style={styles.divider}/>
       <div style={styles.totalContainer}>
         <span>
-          <Typography style={styles.term}>CET: 0.5%</Typography>
+          { term > 1 &&
+            <Typography style={styles.term}>CET: 0.5%</Typography>
+          }
         </span>
         <span>
           <Typography style={styles.totalPrice}>Total: {total}</Typography>
