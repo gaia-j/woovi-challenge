@@ -16,7 +16,7 @@ export const styles : {[key: string]: CSSProperties} = {
   title:{
     color: colors.darkGray,
     fontWeight: 800,
-    fontSize: "1.2rem",
+    fontSize: "1.4rem",
     marginBottom: "20px"
   },
   button:{

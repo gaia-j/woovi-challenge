@@ -18,11 +18,12 @@ export const styles:{[key: string]: CSSProperties} = {
   },
   installmentText: {
     color: colors.darkGray,
-    fontWeight: '700'
+    fontWeight: '700',
+    fontSize: '1.2rem',
   },
   installmentNumber: {
     fontWeight: '800',
-    fontSize: '1.1rem'
+    fontSize: '1.25rem'
   },
   strip:{
     width: "95%",
@@ -68,7 +69,7 @@ export const styles:{[key: string]: CSSProperties} = {
     textAlign: 'left'
   },
   stripText:{
-    fontSize: '0.9rem',
+    fontSize: '0.8rem',
     fontWeight: '600',
     marginLeft: '10px'
   },
