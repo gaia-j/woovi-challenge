@@ -3,8 +3,8 @@
 Esse repositório é um desafio proposto para uma vaga na [Woovi](https://github.com/woovibr)
 <br>
 O projeto está em deploy e disponível para testes [aqui](https://woovi.hugogaia.com)
-<br>
-Video mostrando [aqui](https://youtu.be/Ixi49XeJe80)
+
+
 ## Proposta
 
 Reproduzir 3 views apresentadas em um design do figma:
